@@ -37,7 +37,7 @@
                 //cache this
                 var $this = $(this),
                     //grab our a element
-                    a = $this.find('a'),
+                    children = $this.children(),
                     //grab the text via javascript dom
                     textContent = ($this[0].firstChild.textContent
                                             //striping the new lines or tabs
@@ -50,7 +50,7 @@
                     var truncated = textContent.splice(0, opts.max),
                         //ending holds the remainder
                         ending = textContent.splice(0);
-
+                        
                 //re build the list item
                 $this.html(
                     //grab the words up until max
@@ -58,7 +58,14 @@
                     //wrap the ... in a span for ease of removal
                     String(ending.length > 0 ? ' <span>...</span> ' : '') +
                     ' -- '
-                ).append(a); //add the link back
+                ).append(children); //add the child elements back
+
+                //if ending add the button, we'll store the ending data in it
+                if (ending.length > 0) {
+                    $this.append('<br /><a href="#" data-toggled="false" data-content="' + ending.join(' ') + '">Read More</a>');
+                }
+            });
+
 
                 //if ending add the button, we'll store the ending data in it
                 if (ending.length > 0) {
