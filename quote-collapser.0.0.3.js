@@ -21,7 +21,7 @@
             reStrip = /\n*\t*/g,
             reDigit = /\d+/;
 
-        var checkOptions = (function () {
+        var checkOptions = function () {
             //check if a digit is passed; else use defaults
             //just making sure noone enters bs into the option field
             if (!reDigit.test(options.max) || options.max < 0) {
@@ -29,7 +29,7 @@
                 console.log('%cHey guy, you are supposed to enter positive integers for the max value, ' +
                     'but no worries we got you covered with defaults.','color:red');
             }
-        }());
+        };
 
 
         var grabContent = function(items) {
@@ -65,13 +65,6 @@
                     $this.append('<br /><a href="#" data-toggled="false" data-content="' + ending.join(' ') + '">Read More</a>');
                 }
             });
-
-
-                //if ending add the button, we'll store the ending data in it
-                if (ending.length > 0) {
-                    $this.append('<br /><a href="#" data-toggled="false" data-content="' + ending.join(' ') + '">Read More</a>');
-                }
-            });
         };
 
         var setupEvents = function() {
@@ -90,21 +83,12 @@
         };
 
         var init = (function() {
+            checkOptions();
             grabContent(wrapper.find('li'));
             setupEvents();
         }());
 
         return this;
     };
-
-    $(document).on('ready', function() {
-
-      $('.quotes').maxLenQuote({max: 15})
-          //this is just to show that with our built we still
-          // have access to the . notation after it ran
-          .css({
-            borderBottom: '1px dashed lightGray'
-          });
-    });
 
 }(jQuery));
