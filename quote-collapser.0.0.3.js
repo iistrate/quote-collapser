@@ -49,7 +49,7 @@
                     //truncated holds the words up until max
                     var truncated = textContent.splice(0, opts.max),
                         //ending holds the remainder
-                        ending = textContent.splice(0);
+                        ending = textContent;
                         
                 //re build the list item
                 $this.html(
