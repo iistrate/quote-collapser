@@ -7,7 +7,7 @@
   <meta name="description" content="Show us your chops">
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -39,6 +39,17 @@
 	</ul>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="quote-collapser.0.0.3.js"></script>
+  <script>
+	  (function($) {
+		  $(document).on('ready', function () {
 
+			  $('.quotes').maxLenQuote({max: 15})
+					  .css({
+						  borderBottom: '1px dashed lightGray'
+					  });
+		  })
+	  }(jQuery));
+  </script>
 </body>
 </html>
