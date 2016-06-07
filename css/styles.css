@@ -1,0 +1,10 @@
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+p {
+    margin-bottom: 2rem;
+}
+li {
+    margin-bottom: 1rem;
+}
